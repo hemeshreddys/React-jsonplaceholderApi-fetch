@@ -12,7 +12,13 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
+    //https://jsonplaceholder.typicode.com/photos
+    //https://jsonplaceholder.typicode.com/posts
+    //https://jsonplaceholder.typicode.com/comments
+    //https://jsonplaceholder.typicode.com/users
+    //https://jsonplaceholder.typicode.com/todos
+    //https://jsonplaceholder.typicode.com/albums
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then(response => response.json())
       .then(json => {
         this.setState({
@@ -30,7 +36,10 @@ class App extends Component {
         <div className="App">
           <ul>
             {items.map(item => (
-              <li key={item.id}>{item.name}</li>
+              <li key={item.id}>
+                <h1>{item.title}</h1>
+                <p>{item.body}</p>
+              </li>
             ))}
           </ul>
         </div>
